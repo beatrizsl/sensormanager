@@ -13,8 +13,9 @@ development:
   encoding: utf8
   database: sensorapp_development
   pool: 5
+  host: localhost
   username: railsapp
-  password: e61e8763e7cf5ebf7f508377fb8f31e7
+  password:  
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,8 +26,9 @@ test:
   encoding: utf8
   database: sensorapp_test
   pool: 5
+  host: localhost
   username: railsapp
-  password: e61e8763e7cf5ebf7f508377fb8f31e7
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -34,6 +36,7 @@ production:
   encoding: utf8
   database: sensorapp_production
   pool: 5
+  host: localhost
   username: railsapp
-  password: e61e8763e7cf5ebf7f508377fb8f31e7
+  password: 
   socket: /var/run/mysqld/mysqld.sock
