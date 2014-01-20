@@ -10,12 +10,18 @@ class CategoriaEquiposController < ApplicationController
   # GET /categoria_equipos/1
   # GET /categoria_equipos/1.json
   def show
+
   end
 
   # GET /categoria_equipos/new
   def new
     @categoria_equipo = CategoriaEquipo.new
   end
+
+def list
+    @concentradors = Concentrador.find(:all)
+  end
+
 
   # GET /categoria_equipos/1/edit
   def edit
@@ -59,6 +65,11 @@ class CategoriaEquiposController < ApplicationController
       format.html { redirect_to categoria_equipos_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def list
+    @concentradors = Concentrador.find(:all)
   end
 
   private

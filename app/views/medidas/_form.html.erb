@@ -1,11 +1,32 @@
-<%= semantic_form_for @medida do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :sensor_id %>
-    <%= f.input :fecha %>
-    <%= f.input :valor %>
+
+<%= form_for(@medida) do |f| %>
+  <% if @medida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medida.errors.count, "error") %> prohibited this medida from being saved:</h2>
+
+      <ul>
+      <% @medida.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
+  <div class="field">
+    <%= f.label :sensor %><br>
+    <%= f.select :sensor_id, options_for_select(Sensor.all.map{|s|[s.nombre, s.id]}) %>
+  </div>
+<div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.text_field :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
+

@@ -1,15 +1,49 @@
-<%= semantic_form_for @sensor do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :concentrador_id %>
-    <%= f.input :nombre %>
-    <%= f.input :descripcion %>
-    <%= f.input :estado %>
-    <%= f.input :parametro %>
-    <%= f.input :valor %>
-    <%= f.input :uds %>
+<%= form_for(@sensor) do |f| %>
+  <% if @sensor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sensor.errors.count, "error") %> prohibited this sensor from being saved:</h2>
+
+      <ul>
+      <% @sensor.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
+  <div class="field">
+    <%= f.label :concentrador %><br>
+     <%= f.select :concentrador_id, options_for_select(Concentrador.all.map{|c|[c.nombre, c.id]}) %>
+
+  </div>
+<div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+<div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :parametro %><br>
+    <%= f.text_field :parametro %>
+  </div>
+<div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :uds %><br>
+    <%= f.text_field :uds %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
+
+

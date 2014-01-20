@@ -61,6 +61,10 @@ class SensorsController < ApplicationController
     end
   end
 
+  def list
+    @medidas = Medida.find(:all)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sensor
@@ -69,6 +73,6 @@ class SensorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sensor_params
-      params.require(:sensor).permit(:concentrador_id, :nombre, :descripcion, :estado, :parametro, :valor, :uds)
+      params.require(:sensor).permit(:concentrador_id, :concentrador_id, :nombre, :descripcion, :estado, :parametro, :valor, :uds)
     end
 end

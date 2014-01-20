@@ -1,4 +1,10 @@
 Sensormanager::Application.routes.draw do
+  resources :medidas
+
+  resources :sensors
+
+  resources :concentradors
+
   resources :categoria_equipos
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,6 +14,30 @@ Sensormanager::Application.routes.draw do
   # root 'welcome#index'
   root 'categoria_equipos#index'
 
+resources :categoria_equipos do
+  member do
+    get 'list'
+  end
+end
+
+resources :sensors do
+  member do
+    get 'list'
+  end
+end
+
+resources :concentradors do
+  member do
+    get 'list'
+  end
+end
+
+
+resources :medidas do
+  member do
+    get 'list'
+  end
+end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

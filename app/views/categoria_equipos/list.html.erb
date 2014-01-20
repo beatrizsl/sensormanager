@@ -1,0 +1,13 @@
+<% if @concentradors.blank? %>
+<p>There are not any concentradors currently in the system.</p>
+<% else %>
+<p>These are the current concentradors in our system</p>
+<ul id="concentradors">
+<% @concentradors.each do |c| %>
+<li><%= link_to c.nombre, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Add new concentrador", {:action => 'new' }%></p>
+<p><%= link_to 'Back', categoria_equipos_path %></p>
+

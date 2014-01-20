@@ -1,0 +1,13 @@
+<% if @medidas.blank? %>
+<p>There are not any medidas currently in the system.</p>
+<% else %>
+<p>These are the current medidas in our system</p>
+<ul id="medidas">
+<% @medidas.each do |c| %>
+<li><%= link_to c.nombre, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Add new sensor", {:action => 'new' }%></p>
+<p><%= link_to 'Back', categoria_equipo_path %></p>
+

@@ -69,6 +69,6 @@ class MedidasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medida_params
-      params.require(:medida).permit(:sensor_id, :fecha, :valor)
+      params.require(:medida).permit(:sensor_id, :sensor_id, :fecha, :valor)
     end
 end

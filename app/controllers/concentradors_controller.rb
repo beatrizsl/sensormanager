@@ -10,6 +10,8 @@ class ConcentradorsController < ApplicationController
   # GET /concentradors/1
   # GET /concentradors/1.json
   def show
+  @sensors = Sensor.find(:all)
+
   end
 
   # GET /concentradors/new
@@ -18,7 +20,9 @@ class ConcentradorsController < ApplicationController
   end
 
   # GET /concentradors/1/edit
+
   def edit
+  @concentrador = Concentrador.scoped	 
   end
 
   # POST /concentradors
@@ -61,6 +65,11 @@ class ConcentradorsController < ApplicationController
     end
   end
 
+  def list
+    @sensors = Sensor.find(:all)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_concentrador
@@ -69,6 +78,6 @@ class ConcentradorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def concentrador_params
-      params.require(:concentrador).permit(:categoria_equipos_id, :categoria_equipos_id, :nombre, :descripcion, :estado, :gis_latitud, :gis_longitud, :mac_address, :numero_serie, :ip_address, :ip_port)
+      params.require(:concentrador).permit(:categoria_equipo_id, :categoria_equipo_id, :nombre, :descripcion, :estado, :gis_latitud, :gis_longitud, :mac_address, :numero_serie, :ip_address, :ip_port)
     end
 end

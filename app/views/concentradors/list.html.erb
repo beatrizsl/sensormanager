@@ -1,0 +1,12 @@
+<% if @sensors.blank? %>
+<p>There are not any sensors currently in the system.</p>
+<% else %>
+<p>These are the current sensors in our system</p>
+<ul id="sensors">
+<% @sensors.each do |c| %>
+<li><%= link_to c.nombre, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Add new concentrador", {:action => 'new' }%></p>
+<p><%= link_to 'Back', concentrador_path %></p>
